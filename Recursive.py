@@ -63,16 +63,16 @@ floyd (graph)
 import timeit
 
 graph_size = 20
-graph_big = [[float('inf')] * graph_size for _ in range(graph_size)]
+graph_big = [[float('inf')] * graph_size for i in range(graph_size)]
 for i in range(graph_size):
     graph_big[i][i] = 0
 
 iterations = 3
 
-print("Recursive Algorithm:")
-recursive_time = timeit.timeit(lambda: floyd_recursive(graph_big), number=iterations)
-print("Time:", recursive_time / iterations)
-
 print("Iterative Algorithm:")
 iterative_time = timeit.timeit(lambda: floyd_iterative(graph_big), number=iterations)
 print("Time:", iterative_time / iterations)
+
+print("Recursive Algorithm:")
+recursive_time = timeit.timeit(lambda: floyd(graph_big), number=iterations)
+print("Time:", recursive_time / iterations)
